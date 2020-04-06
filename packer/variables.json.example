@@ -1,8 +1,9 @@
 {
-    "project_id": "infra-666666",
-    "src_img_fam":"ubuntu-6666-lts",
-    "db_disk_size":"66",
-    "app_disk_size":"66",
-    "disk_type" : "pd-standard"
-    "tags": "foo"
+        "project_id": "infra-666666",
+        "src_img_fam":"ubuntu-6666-lts",
+        "db_disk_size":"66",
+        "app_disk_size":"66",
+        "disk_type" : "pd-standard",
+        "tags": "foo"
 }
+
