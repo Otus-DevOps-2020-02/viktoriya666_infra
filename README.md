@@ -14,3 +14,6 @@ Host * ForwardAgent yes
 Host bastion HostName 34.77.201.5 User appuser IdentityFile ~/.ssh/appuser
 
 Host someinternalhost HostName 10.132.0.3 ProxyJump bastion User appuser IdentityFile ~/.ssh/appuser
+
+Или:
+alias someinternalhost="ssh -i ~/.ssh/appuser -t -A appuser@34.77.201.5 ssh 10.132.0.3"
