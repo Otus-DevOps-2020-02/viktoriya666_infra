@@ -3,7 +3,10 @@ viktoriya666 Infra repository
 
 HW 5.
 
-Данные для подключения: bastion_IP = 34.77.201.5 someinternalhost_IP = 10.132.0.3
+Данные для подключения:
+
+bastion_IP = 34.77.201.5
+someinternalhost_IP = 10.132.0.3
 
 ssh -i ~/.ssh/appuser -A -t appuser@34.77.201.5 ssh 10.132.0.3
 
