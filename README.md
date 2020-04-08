@@ -1,26 +1,22 @@
 # viktoriya666_infra
 viktoriya666 Infra repository
-HW 6.
-Перейти в корень репозитория viktoriya666_infra.
 
-Создание виртуалки:
+HW 5.
 
-gcloud compute instances create reddit-app\
-  --boot-disk-size=10GB \
-  --image-family ubuntu-1604-lts \
-  --image-project=ubuntu-os-cloud \
-  --machine-type=g1-small \
-  --tags puma-server \
-  --restart-on-failure \
-  --metadata-from-file startup-script=startup.sh
+Данные для подключения:
 
-Создание правила:
-gcloud compute firewall-rules create default-puma-server \
-  --allow=tcp:9292 \
-  --target-tags=puma-server \
-  --description="access to server puma"
+bastion_IP = 34.77.201.5
+someinternalhost_IP = 10.132.0.3
 
-testapp_IP = 35.189.216.81 
-testapp_port = 9292
+ssh -i ~/.ssh/appuser -A -t appuser@34.77.201.5 ssh 10.132.0.3
 
-В своем браузере зайти на http://35.189.216.81:9292, в окне браузера увидите интерфейс вашего приложения.
+Дополнительное задание: Для того, чтобы подключится по алиасу ssh someinternalhost необходимо в файл ~/.ssh/config внести данные:
+
+Host * ForwardAgent yes
+
+Host bastion HostName 34.77.201.5 User appuser IdentityFile ~/.ssh/appuser
+
+Host someinternalhost HostName 10.132.0.3 ProxyJump bastion User appuser IdentityFile ~/.ssh/appuser
+
+Или:
+alias someinternalhost="ssh -i ~/.ssh/appuser -t -A appuser@34.77.201.5 ssh 10.132.0.3"
