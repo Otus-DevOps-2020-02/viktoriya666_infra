@@ -4,7 +4,7 @@ terraform {
 }
 
 provider "google" {
-  credentials = file("C:/Users/Prophet/Desktop/Vikusik/8. terraform 1/service.json")
+  ###credentials = file("C:/Users/Prophet/Desktop/Vikusik/8. terraform 1/service.json")
   # Версия провайдера
   version = "~>2.5"
 
