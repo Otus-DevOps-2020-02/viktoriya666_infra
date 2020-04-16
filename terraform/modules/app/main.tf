@@ -1,3 +1,18 @@
+terraform {
+  # Версия terraform
+  required_version = "~>0.12"
+}
+
+provider "google" {
+  credentials = file("/mnt/c/Users/Prophet/Desktop/Vikusik/8. terraform 1/service.json")
+  # Версия провайдера
+  version = "~>2.5.0"
+
+  # ID проекта
+  project = "infra-271012"
+  region = var.region
+}
+
 resource "google_compute_instance" "app" {
   name         = "reddit-app-1"
   machine_type = "g1-small"
@@ -15,7 +30,7 @@ resource "google_compute_instance" "app" {
     }
   }
   metadata = {
-    ssh-keys = "appuser:${file(var.public_key_path)}"
+    ssh-keys = var.public_key_path
   }
 }
 
