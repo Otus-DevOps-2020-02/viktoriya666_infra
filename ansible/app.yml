@@ -1,6 +1,6 @@
+---
 - name: Configure App
   hosts: app
-  tags: app-tag
   become: true
   vars:
     db_host: 10.132.0.19
@@ -25,4 +25,4 @@
   handlers:
   - name: reload puma
     systemd: name=puma state=restarted
-    
+
