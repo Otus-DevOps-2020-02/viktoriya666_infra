@@ -4,9 +4,8 @@ After=network.target
 
 [Service]
 Type=simple
-EnvironmentFile=/home/vika/db_config
-User=vika
-WorkingDirectory=/home/vika/reddit
+User=appuser
+WorkingDirectory=/home/appuser/reddit
 ExecStart=/bin/bash -lc 'puma'
 Restart=always
 
