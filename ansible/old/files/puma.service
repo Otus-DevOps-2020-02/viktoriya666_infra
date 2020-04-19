@@ -1,0 +1,16 @@
+[Unit]
+Description=Puma HTTP Server
+After=network.target
+
+[Service]
+User=vika
+Group=vika
+WorkingDirectory=/home/vika/reddit
+EnvironmentFile=/home/vika/db_config
+ExecStart=/usr/local/bin/puma
+ExecStop=/bin/kill -INT $MAINPID
+Restart=always
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target
