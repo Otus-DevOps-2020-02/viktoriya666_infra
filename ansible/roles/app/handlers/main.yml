@@ -1,0 +1,6 @@
+---
+- name: reload puma
+  systemd:
+    state: restarted
+    daemon_reload: yes
+    name: puma
